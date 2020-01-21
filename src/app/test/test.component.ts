@@ -10,9 +10,9 @@ import { SetTest } from '../store/actions/test.actions';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  message$ = this._store.pipe(select(selectMessage))
+  message$ = this.store.pipe(select(selectMessage))
 
-  constructor(private _store: Store<IAppState>) {}
+  constructor(private store: Store<IAppState>) {}
 
   ngOnInit() {
     console.log('init test component')
@@ -21,6 +21,6 @@ export class TestComponent implements OnInit {
   setMessage() {
     console.log('set message')
 
-    this._store.dispatch(new SetTest('new message'))
+    this.store.dispatch(new SetTest('new message'))
   }
 }
