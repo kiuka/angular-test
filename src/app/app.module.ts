@@ -14,6 +14,7 @@ import { appRoutes } from './app.routes';
 import { IsAuthenticatedGuardService } from './guards/is-authenticated-guard.service';
 import { IsNotAuthenticatedGuardService } from './guards/is-not-authenticated-guard.service';
 import { LogoutComponent } from './logout/logout.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     GameComponent,
     ScoreboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

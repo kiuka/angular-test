@@ -1,7 +1,6 @@
 import { of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { IAuthDataInterface } from '../interfaces/auth-data.interface';
-import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +9,16 @@ export class AuthService {
   key = 'auth';
 
   constructor() {
+  }
+
+  getAuthUsername(): string | null {
+    const data = this.getAuthData();
+
+    if (!data) {
+      return null;
+    }
+
+    return data.username;
   }
 
   getAuthData(): IAuthDataInterface | null {
