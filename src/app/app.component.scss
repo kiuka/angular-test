@@ -1,0 +1,14 @@
+nav {
+  padding: 2rem 0 1rem;
+  border-bottom: .0625rem solid #000;
+
+  a {
+    margin: 0 1rem;
+    color: #000;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
