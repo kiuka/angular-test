@@ -6,8 +6,10 @@
 
 <body>
 <nav>
-  <a routerLink="/test" routerLinkActive="active">Test</a>
-  <a routerLink="/list" routerLinkActive="active">List</a>
+  <a *ngIf="!authService.isAuthenticated()" routerLink="/">Login</a>
+  <a *ngIf="authService.isAuthenticated()" routerLink="/game">Game</a>
+  <a routerLink="/scoreboard">Scoreboard</a>
+  <a *ngIf="authService.isAuthenticated()" routerLink="/logout">Kilépés</a>
 </nav>
 
 <router-outlet></router-outlet>

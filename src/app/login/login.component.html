@@ -1,0 +1,23 @@
+<form (submit)="onSubmit()">
+  <div *ngIf="error">
+    <h1>Hiba történt a belépés közben!</h1>
+
+    <p>{{error}}</p>
+  </div>
+
+  <div>
+    <label for="username">Felhasználónév</label>
+
+    <input type="text" id="username" name="username" [(ngModel)]="username">
+  </div>
+
+  <div>
+    <label for="password">Jelszó</label>
+
+    <input type="password" id="password" name="password" [(ngModel)]="password">
+  </div>
+
+  <div>
+    <button type="submit">Belépés</button>
+  </div>
+</form>
