@@ -44,7 +44,12 @@ export class GameComponent implements OnInit {
 
     card.turn();
 
-    await this.gameService.checkPairs();
-    await this.gameService.checkIfFinished();
+    // wait until the card turns and after check them
+    window.setTimeout(
+      async () => {
+        await this.gameService.checkPairs();
+        await this.gameService.checkIfFinished();
+      },
+      600);
   }
 }
