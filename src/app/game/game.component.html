@@ -23,9 +23,11 @@
       }"
       (click)="turnCard(card)"
     >
-      <span *ngIf="card.isTurned || card.isPaired">
+      <div class="cards__item__front"></div>
+
+      <div *ngIf="card.isTurned || card.isPaired" class="cards__item__back">
         {{card.value}}
-      </span>
+      </div>
     </li>
   </ul>
 </div>

@@ -18,3 +18,40 @@
     background: #efefef;
   }
 }
+
+.cards__item--turned {
+  transform: rotateY(180deg);
+}
+
+.cards__item__front, .cards__item__back {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.cards__item {
+  transition: .6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+.cards__item__front, .cards__item__back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cards__item__front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.cards__item__back {
+  transform: rotateY(180deg);
+}
