@@ -1,0 +1,20 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 -.5rem;
+  padding: 0;
+}
+
+.cards__item {
+  margin: .5rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: .5rem;
+  border: solid .0625rem #ddd;
+  cursor: pointer;
+
+  &:hover {
+    background: #efefef;
+  }
+}

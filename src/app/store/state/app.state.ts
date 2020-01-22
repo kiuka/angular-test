@@ -1,13 +1,13 @@
-import { initialTestState, ITestState } from './test.state';
+import { initialGameState, IGameState } from './game.state';
 
 export interface IAppState {
-  test: ITestState
+  game: IGameState
 }
 
 export const initialAppState: IAppState = {
-  test: initialTestState
-}
+  game: initialGameState
+};
 
 export const getInitialState = (): IAppState => {
-  return initialAppState
-}
+  return initialAppState;
+};

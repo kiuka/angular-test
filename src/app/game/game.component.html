@@ -1,0 +1,31 @@
+<h1>Memory game</h1>
+
+<div *ngIf="status === 'unloaded'">
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="status === 'finished'">
+  <p>Congratulations, you have finished the game. Your score is {{tries}}.</p>
+
+  <button (click)="restart()">Restart game</button>
+</div>
+
+<div *ngIf="status === 'loaded'">
+  <p>Try to find all the pairs...</p>
+
+  <ul class="cards">
+    <li
+      *ngFor="let card of cards"
+      [ngClass]="{
+        'cards__item': true,
+        'cards__item--turned': card.isTurned,
+        'cards__item--paired': card.isPaired
+      }"
+      (click)="turnCard(card)"
+    >
+      <span *ngIf="card.isTurned || card.isPaired">
+        {{card.value}}
+      </span>
+    </li>
+  </ul>
+</div>

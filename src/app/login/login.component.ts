@@ -8,25 +8,26 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username = ''
-  password = ''
-  error: string | null = null
+  username = '';
+  password = '';
+  error: string | null = null;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {
+  }
 
   ngOnInit() {
   }
 
   async onSubmit() {
     try {
-      console.log('start login')
-      await this.authService.login(this.username, this.password).toPromise()
-      console.log('end login')
+      console.log('start login');
+      await this.authService.login(this.username, this.password).toPromise();
+      console.log('end login');
 
-      this.router.navigate(['/game'])
+      this.router.navigate(['/game']);
 
     } catch (e) {
-      this.error = 'Sikertelen belépés.'
+      this.error = 'Sikertelen belépés.';
     }
   }
 }

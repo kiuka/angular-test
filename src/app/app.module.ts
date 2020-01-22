@@ -7,8 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appReducers } from './store/reducers/app.reducers';
-import { TestComponent } from './test/test.component';
-import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 import { GameComponent } from './game/game.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
@@ -20,8 +18,6 @@ import { LogoutComponent } from './logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
-    ListComponent,
     LoginComponent,
     GameComponent,
     ScoreboardComponent,

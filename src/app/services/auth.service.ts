@@ -7,24 +7,25 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  key = 'auth'
+  key = 'auth';
 
-  constructor() { }
+  constructor() {
+  }
 
   getAuthData(): IAuthDataInterface | null {
-    const token = localStorage.getItem(this.key)
+    const token = localStorage.getItem(this.key);
 
     if (!token) {
-      return null
+      return null;
     }
 
     try {
-      return JSON.parse(localStorage.getItem(this.key))
+      return JSON.parse(localStorage.getItem(this.key));
 
     } catch (e) {
       // invalid data in localstorage
 
-      return null
+      return null;
     }
   }
 
@@ -34,24 +35,24 @@ export class AuthService {
     const data: IAuthDataInterface = {
       username,
       token: 'ok'
-    }
+    };
 
-    localStorage.setItem(this.key, JSON.stringify(data))
+    localStorage.setItem(this.key, JSON.stringify(data));
 
-    return of(data)
+    return of(data);
   }
 
   logout(): void {
-    localStorage.removeItem(this.key)
+    localStorage.removeItem(this.key);
   }
 
   isAuthenticated(): boolean {
-    const data = this.getAuthData()
+    const data = this.getAuthData();
 
     if (!data) {
-      return false
+      return false;
     }
 
-    return data.token === 'ok'
+    return data.token === 'ok';
   }
 }

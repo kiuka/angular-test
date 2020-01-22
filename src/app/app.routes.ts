@@ -12,4 +12,4 @@ export const appRoutes: Routes = [
   { path: 'game', component: GameComponent, canActivate: [IsAuthenticatedGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [IsAuthenticatedGuardService] },
   { path: 'scoreboard', component: ScoreboardComponent },
-]
+];
