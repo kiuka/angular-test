@@ -13,6 +13,8 @@
 <div *ngIf="status === 'loaded'">
   <p>Try to find all the pairs...</p>
 
+  <button (click)="restart()">Restart game</button>
+
   <ul class="cards">
     <li
       *ngFor="let card of cards"
