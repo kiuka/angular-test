@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Store } from '@ngrx/store';
 import { IAppState } from './store/state/app.state';
@@ -9,13 +9,12 @@ import { selectAuthUsername, selectIsAuthenticated } from './store/selectors/aut
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   isAuthenticated = false;
   username: string | null = null;
 
-  constructor(private store: Store<IAppState>, public authService: AuthService, private changeDetectionRef: ChangeDetectorRef) {
+  constructor(private store: Store<IAppState>, public authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -24,17 +23,17 @@ export class AppComponent implements OnInit {
     this.store
       .select(selectIsAuthenticated)
       .subscribe((value: boolean) => {
-        this.isAuthenticated = value;
-
-        // this.changeDetectionRef.markForCheck();
+        window.setTimeout(() => {
+          this.isAuthenticated = value;
+        }, 0);
       });
 
     this.store
       .select(selectAuthUsername)
       .subscribe((username: string | null) => {
-        this.username = username;
-
-        // this.changeDetectionRef.markForCheck();
+        window.setTimeout(() => {
+          this.username = username;
+        }, 0);
       });
   }
 
