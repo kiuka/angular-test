@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Store } from '@ngrx/store';
 import { IAppState } from './store/state/app.state';
@@ -8,13 +8,14 @@ import { selectAuthUsername, selectIsAuthenticated } from './store/selectors/aut
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   isAuthenticated = false;
   username: string | null = null;
 
-  constructor(private store: Store<IAppState>, public authService: AuthService) {
+  constructor(private store: Store<IAppState>, public authService: AuthService, private changeDetectionRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -22,11 +23,19 @@ export class AppComponent implements OnInit {
 
     this.store
       .select(selectIsAuthenticated)
-      .subscribe((value: boolean) => this.isAuthenticated = value);
+      .subscribe((value: boolean) => {
+        this.isAuthenticated = value;
+
+        // this.changeDetectionRef.markForCheck();
+      });
 
     this.store
       .select(selectAuthUsername)
-      .subscribe((username: string | null) => this.username = username);
+      .subscribe((username: string | null) => {
+        this.username = username;
+
+        // this.changeDetectionRef.markForCheck();
+      });
   }
 
   populateUser() {
