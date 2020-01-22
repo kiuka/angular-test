@@ -1,6 +1,9 @@
 import { of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { IAuthDataInterface } from '../interfaces/auth-data.interface';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../store/state/app.state';
+import { Login, Logout, PopulateUser } from '../store/actions/auth.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,7 @@ import { IAuthDataInterface } from '../interfaces/auth-data.interface';
 export class AuthService {
   key = 'auth';
 
-  constructor() {
+  constructor(private store: Store<IAppState>) {
   }
 
   getAuthUsername(): string | null {
@@ -39,7 +42,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    // should check if username and password is valid
+    this.store.dispatch(new Login());
 
     const data: IAuthDataInterface = {
       username,
@@ -48,20 +51,14 @@ export class AuthService {
 
     localStorage.setItem(this.key, JSON.stringify(data));
 
+    this.store.dispatch(new PopulateUser(data.username));
+
     return of(data);
   }
 
   logout(): void {
+    this.store.dispatch(new Logout());
+
     localStorage.removeItem(this.key);
-  }
-
-  isAuthenticated(): boolean {
-    const data = this.getAuthData();
-
-    if (!data) {
-      return false;
-    }
-
-    return data.token === 'ok';
   }
 }

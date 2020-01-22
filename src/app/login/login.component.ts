@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
 
   async onSubmit() {
     try {
-      console.log('start login');
-      await this.authService.login(this.username, this.password).toPromise();
-      console.log('end login');
+      const data = await this.authService.login(this.username, this.password).toPromise();
 
       this.router.navigate(['/game']);
 

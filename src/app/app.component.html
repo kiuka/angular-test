@@ -6,11 +6,11 @@
 
 <body>
 <nav>
-  <a *ngIf="!authService.isAuthenticated()" routerLink="/">Login</a>
-  <a *ngIf="authService.isAuthenticated()" routerLink="/profile">Profile</a>
-  <a *ngIf="authService.isAuthenticated()" routerLink="/game">Game</a>
+  <a *ngIf="!isAuthenticated" routerLink="/">Login</a>
+  <a *ngIf="isAuthenticated" routerLink="/profile">Profile</a>
+  <a *ngIf="isAuthenticated" routerLink="/game">Game</a>
   <a routerLink="/scoreboard">Scoreboard</a>
-  <a *ngIf="authService.isAuthenticated()" routerLink="/logout">Kilépés</a>
+  <a *ngIf="isAuthenticated" routerLink="/logout">Kilépés</a>
 </nav>
 
 <router-outlet></router-outlet>
