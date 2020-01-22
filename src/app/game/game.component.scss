@@ -1,3 +1,15 @@
+$green: #41b3a3;
+
+@keyframes flash-background {
+  0% {
+    background: $green;
+  }
+
+  100% {
+    background: #fff;
+  }
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -16,6 +28,15 @@
 
   &:hover {
     background: #efefef;
+  }
+}
+
+.cards__item--paired {
+  animation: flash-background 1s forwards;
+  color: #efefef;
+
+  &:hover {
+    background: #fff;
   }
 }
 
