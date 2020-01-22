@@ -6,6 +6,6 @@ export interface IConfig {
 
 export const config: IConfig = {
   game: {
-    number_of_cards: 2
+    number_of_cards: 6
   }
 };
