@@ -1,0 +1,23 @@
+<h1>Scoreboard</h1>
+
+<div *ngIf="scores.length === 0">
+  <p>The scoreboard is empty.</p>
+</div>
+
+<div *ngIf="scores.length > 0">
+  <table>
+    <thead>
+    <tr>
+      <th>Username</th>
+      <th>Score</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let score of scores | keyvalue">
+      <td>{{(+score.key + 1)}}. {{score.value.name}}</td>
+      <td>{{score.value.score}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

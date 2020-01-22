@@ -26,6 +26,14 @@ export class ScoreService {
     }
   }
 
+  getSortedScores() {
+    const scores = this.getScores();
+
+    scores.sort((a, b) => (a.score > b.score) ? 1 : -1);
+
+    return [...scores];
+  }
+
   /**
    * Save single score
    */
