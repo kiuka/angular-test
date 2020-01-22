@@ -8,7 +8,7 @@ import { selectAuthUsername, selectIsAuthenticated } from './store/selectors/aut
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss', 'scss/form.scss'],
 })
 export class AppComponent implements OnInit {
   isAuthenticated = false;

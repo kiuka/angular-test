@@ -1,0 +1,30 @@
+.form-element {
+  padding: 1rem 0;
+
+  label {
+    display: block;
+    padding: 0 0 .5rem 0;
+  }
+
+  input {
+    height: 2rem;
+    border: .0625rem solid #000;
+    padding: 0 1rem;
+  }
+}
+
+.button {
+  border-radius: .5rem;
+  display: inline-block;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #000;
+  border: 0;
+  text-transform: uppercase;
+}
+
+.button--blue {
+  background: #557a95;
+  color: #fff;
+}

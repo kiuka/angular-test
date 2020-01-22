@@ -8,7 +8,7 @@ import { selectCards, selectStatus, selectTries } from '../store/selectors/game.
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  styleUrls: ['./game.component.scss', '../scss/form.scss']
 })
 export class GameComponent implements OnInit {
   tries = 0;

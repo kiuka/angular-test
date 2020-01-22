@@ -7,7 +7,7 @@
 <div *ngIf="status === 'finished'">
   <p>Congratulations, you have finished the game. Your score is {{tries}}.</p>
 
-  <button (click)="restart()">Restart game</button>
+  <button class="button button--blue" (click)="restart()">Restart game</button>
 </div>
 
 <div *ngIf="status === 'loaded'">
@@ -15,7 +15,7 @@
 
   <p>Current score: {{tries}}</p>
 
-  <button (click)="restart()">Restart game</button>
+  <button class="button button--blue" (click)="restart()">Restart game</button>
 
   <ul class="cards">
     <li
